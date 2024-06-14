@@ -40,13 +40,10 @@ go mod tidy
 
   # So you learned how to make cosmos rpcs public.
    # We create an env for the system file to function properly.
-
-   nano ~/.rollup-env
+    nano ~/.rollup-env
 
    # We enter the necessary variables into it.
-    There is nothing to change in this code block..
-
-
+   # There is nothing to change in this code block..
 CHAINID="stationevm_9000-1"
 MONIKER="localtestnet"
 KEYRING="test"
