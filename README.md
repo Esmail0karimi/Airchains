@@ -40,12 +40,13 @@ Minimum: 2 vCPU 4 RAM
          nano ~/.evmosd/config/app.toml
 
   # So you learned how to make cosmos rpcs public.
-   # We create an env for the system file to function properly.  
+   We create an env for the system file to function properly.  
         
         nano ~/.rollup-env
 
    # We enter the necessary variables into it.
-   # There is nothing to change in this code block..
+   There is nothing to change in this code block..
+   
      CHAINID="stationevm_9000-1"
      MONIKER="localtestnet"
      KEYRING="test"
@@ -62,7 +63,7 @@ Minimum: 2 vCPU 4 RAM
 
 
 # We write the service file. If you are using user, change the root section accordingly.
-#You can copy paste the entire block with one command, my dears.
+You can copy paste the entire block with one command, my dears.
 
 
     sudo tee /etc/systemd/system/rolld.service > /dev/null << EOF
@@ -77,9 +78,9 @@ Minimum: 2 vCPU 4 RAM
     Restart=always
     RestartSec=3
 
-   [Install]
-   WantedBy=multi-user.target
-   EOF
+    [Install]
+    WantedBy=multi-user.target
+    EOF
 
 
 # We update and start the services.
