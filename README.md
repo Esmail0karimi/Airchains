@@ -84,11 +84,10 @@ You can copy paste the entire block with one command, my dears.
 
 
 # We update and start the services.
-
-   sudo systemctl daemon-reload
-   sudo systemctl enable rolld
-   sudo systemctl start rolld
-   sudo journalctl -u rolld -f --no-hostname -o cat
+      sudo systemctl daemon-reload
+      sudo systemctl enable rolld
+      sudo systemctl start rolld
+      sudo journalctl -u rolld -f --no-hostname -o cat
 
 # This command will give us a private key, we keep it.
 
@@ -108,7 +107,7 @@ The reason I chose EigenDA is because it is the easiest Celestia and Eigen (the 
 # Close it with Ctrl+c, enter and note the other `public hex` given, you will need it.
 # Add 0.5 eth to the given 0x evm address on the holesky network, just in case.
 
-eigenlayer operator keys create --key-type ecdsa CUZDANADI
+     eigenlayer operator keys create --key-type ecdsa CUZDANADI
 
 # Now we move on to the track and station part.
 
@@ -166,10 +165,10 @@ Those who do not want to run the service can open a screen and run the go run cm
 
 # and 
 
-   sudo systemctl daemon-reload
-   sudo systemctl enable stationd
-   sudo systemctl restart stationd
-   sudo journalctl -u stationd -f --no-hostname -o cat
+       sudo systemctl daemon-reload
+       sudo systemctl enable stationd
+       sudo systemctl restart stationd
+       sudo journalctl -u stationd -f --no-hostname -o cat
 
 # Is the installation ok?
 
