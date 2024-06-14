@@ -39,8 +39,9 @@ Minimum: 2 vCPU 4 RAM
   nano ~/.evmosd/config/app.toml
 
   # So you learned how to make cosmos rpcs public.
-   # We create an env for the system file to function properly.
-    nano ~/.rollup-env
+   # We create an env for the system file to function properly.  
+        
+        nano ~/.rollup-env
 
    # We enter the necessary variables into it.
    # There is nothing to change in this code block..
