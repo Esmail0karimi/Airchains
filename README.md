@@ -26,17 +26,18 @@ Minimum: 2 vCPU 4 RAM
  git clone https://github.com/airchains-network/tracks.git
 
 # We are starting to set up our evmos network, this is our own network running locally.
- cd evm-station
- go mod tidy
+        cd evm-station
+        go mod tidy
 
 # We complete the installation with this command.
- /bin/bash ./scripts/local-setup.sh
+
+         /bin/bash ./scripts/local-setup.sh
 
 
 # RPC will be needed in the next stages, let's set it up.
   # The RPC section at the bottom will be like this.
 
-  nano ~/.evmosd/config/app.toml
+         nano ~/.evmosd/config/app.toml
 
   # So you learned how to make cosmos rpcs public.
    # We create an env for the system file to function properly.  
