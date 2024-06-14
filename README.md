@@ -12,25 +12,25 @@ Minimum: 2 vCPU 4 RAM
 # Setup
 
 # update
-apt update && apt upgrade -y
-sudo apt install -y curl git jq lz4 build-essential cmake perl automake autoconf libtool wget libssl-dev
+ apt update && apt upgrade -y
+ sudo apt install -y curl git jq lz4 build-essential cmake perl automake autoconf libtool wget libssl-dev
 
 # go setup
-sudo rm -rf /usr/local/go
-curl -L https://go.dev/dl/go1.22.3.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
-echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
-source .bash_profile
+ sudo rm -rf /usr/local/go
+ curl -L https://go.dev/dl/go1.22.3.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+ echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
+ source .bash_profile
 
 # We withdraw the necessary repos
-git clone https://github.com/airchains-network/evm-station.git
-git clone https://github.com/airchains-network/tracks.git
+ git clone https://github.com/airchains-network/evm-station.git
+ git clone https://github.com/airchains-network/tracks.git
 
 # We are starting to set up our evmos network, this is our own network running locally.
-cd evm-station
-go mod tidy
+ cd evm-station
+ go mod tidy
 
 # We complete the installation with this command.
-/bin/bash ./scripts/local-setup.sh
+ /bin/bash ./scripts/local-setup.sh
 
 
 # RPC will be needed in the next stages, let's set it up.
@@ -44,18 +44,18 @@ go mod tidy
 
    # We enter the necessary variables into it.
    # There is nothing to change in this code block..
-CHAINID="stationevm_9000-1"
-MONIKER="localtestnet"
-KEYRING="test"
-KEYALGO="eth_secp256k1"
-LOGLEVEL="info"
-HOMEDIR="$HOME/.evmosd"
-TRACE=""
-BASEFEE=1000000000
-CONFIG=$HOMEDIR/config/config.toml
-APP_TOML=$HOMEDIR/config/app.toml
-GENESIS=$HOMEDIR/config/genesis.json
-TMP_GENESIS=$HOMEDIR/config/tmp_genesis.json
+ CHAINID="stationevm_9000-1"
+ MONIKER="localtestnet"
+ KEYRING="test"
+ KEYALGO="eth_secp256k1"
+ LOGLEVEL="info"
+ HOMEDIR="$HOME/.evmosd"
+ TRACE=""
+ BASEFEE=1000000000
+ CONFIG=$HOMEDIR/config/config.toml
+ APP_TOML=$HOMEDIR/config/app.toml
+ GENESIS=$HOMEDIR/config/genesis.json
+ TMP_GENESIS=$HOMEDIR/config/tmp_genesis.json
         VAL_KEY="mykey"
 
 
@@ -63,21 +63,21 @@ TMP_GENESIS=$HOMEDIR/config/tmp_genesis.json
 #You can copy paste the entire block with one command, my dears.
 
 
-sudo tee /etc/systemd/system/rolld.service > /dev/null << EOF
-[Unit]
-Description=ZK
-After=network.target
+ sudo tee /etc/systemd/system/rolld.service > /dev/null << EOF
+ [Unit]
+ Description=ZK
+ After=network.target
+ 
+ [Service]
+ User=root
+ EnvironmentFile=/root/.rollup-env
+ ExecStart=/root/evm-station/build/station-evm start --metrics "" --log_level info --json-rpc.api eth,txpool,personal,net,debug,web3 --chain-id stationevm_9000-1
+ Restart=always
+ RestartSec=3
 
-[Service]
-User=root
-EnvironmentFile=/root/.rollup-env
-ExecStart=/root/evm-station/build/station-evm start --metrics "" --log_level info --json-rpc.api eth,txpool,personal,net,debug,web3 --chain-id stationevm_9000-1
-Restart=always
-RestartSec=3
-
-[Install]
-WantedBy=multi-user.target
-EOF
+ [Install]
+ WantedBy=multi-user.target
+ EOF
 
 
 # We update and start the services.
