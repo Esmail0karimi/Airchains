@@ -194,4 +194,4 @@ Those who get an rpc error during the track process should try rollback. Sometim
    sudo systemctl restart stationd
    sudo journalctl -u stationd -f --no-hostname -o cat
 
-#  Come on, goodbye
+#  Come on, goodbyee
