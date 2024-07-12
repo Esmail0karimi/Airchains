@@ -185,7 +185,7 @@ ticker tEVMOS
 
 From here, it's up to you whether you deploy a contract or a manual TX.
 
-Those who get an rpc error during the track process should try rollback. Sometimes the problem is solved with 1, sometimes 3 rollback operations. Run the go run cmd/main.go rollback command as many times as you want to rollback, waiting for the output each time.
+Those who get an rpc error during the track process should try rollback. Sometimes the problem is solved with 1, sometimes 3 rollback operations. Run the go run cmd/main.go rollback command as many times as you want to rollback, waiting for the output each time..
 
    systemctl stop stationd
    cd tracks
