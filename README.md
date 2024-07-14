@@ -1,6 +1,6 @@
 # Airchains
 
-# WARNING: To avoid losing your points in case of any error, keep the keys and priv keys given during the installation stages..
+# WARNING: To avoid losing your points in case of any error, keep the keys and priv keys given during the installation stages....
 
 We install standard updates and requirements.
 
